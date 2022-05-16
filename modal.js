@@ -18,8 +18,8 @@ const lastInput = document.querySelector("#last");
 const emailInput = document.querySelector("#email");
 const birthdateInput = document.querySelector("#birthdate");
 const quantityInput = document.querySelector("#quantity");
-const locationInput = document.querySelectorAll('input[type=radio]:checked');
-const condtionInput = document.querySelectorAll('label[for=checkbox1]:checked');
+const locationInput = document.querySelector('.checkbox-label');
+const condtionInput = document.querySelector('.checkbox2-label');
 const submitButton = document.querySelector('.btn-submit');
 const allInputs = document.querySelectorAll('form>div>input');
 
@@ -121,22 +121,14 @@ function quantityOk() {
 function locationOk() {
   let locationOk = false;
   if(document.querySelectorAll('input[type=radio]:checked').length == 1) {
+    locationInput.parentNode.removeAttribute("data-error");
+    locationInput.parentNode.removeAttribute("data-error-visible");
     locationOk = true;
+  } else {
+    locationInput.parentNode.setAttribute("data-error", "Vous devez choisir une destination")
+    locationInput.parentNode.setAttribute("data-error-visible", "true");
   }
   return locationOk;
-}
-
-/**
- * function to check if condition is ok
- * @returns {boolean}
- */
-// function to check if condition is ok
-function conditionOk() {
-  let conditionOk = false;
-  if(document.querySelector('#checkbox1').checked == 1) {
-    conditionOk = true; 
-  }
-  return conditionOk;
 }
 
 // function to check if all conditions are ok
@@ -148,8 +140,7 @@ function allConditionsOk(e) {
   let conditionBirthdate = birthdateOk();
   let conditionQuantity = quantityOk();
   let conditionLocation = locationOk();
-  let conditionCondition = conditionOk();
-  if(conditionFirstName && conditionLastName && conditionEmail && conditionBirthdate && conditionQuantity && conditionLocation && conditionCondition) {
+  if(conditionFirstName && conditionLastName && conditionEmail && conditionBirthdate && conditionQuantity && conditionLocation) {
     closeModal();
     firstInput.value = "";
     lastInput.value = "";
