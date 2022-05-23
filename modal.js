@@ -131,6 +131,20 @@ function locationOk() {
   return locationOk;
 }
 
+// function to check if condition is ok
+function conditionOk() {
+  let conditionOk = false;
+  if(document.querySelectorAll('input[id=checkbox1]:checked').length == 1) {
+    conditionInput.parentNode.removeAttribute("data-error");
+    conditionInput.parentNode.removeAttribute("data-error-visible");
+    conditionOk = true;
+  } else {
+    conditionInput.parentNode.setAttribute("data-error", "Vous devez valider les conditions générales")
+    conditionInput.parentNode.setAttribute("data-error-visible", "true");
+  }
+  return conditionOk;
+}
+
 // function to check if all conditions are ok
 function allConditionsOk(e) {
   e.preventDefault();
@@ -140,7 +154,8 @@ function allConditionsOk(e) {
   let conditionBirthdate = birthdateOk();
   let conditionQuantity = quantityOk();
   let conditionLocation = locationOk();
-  if(conditionFirstName && conditionLastName && conditionEmail && conditionBirthdate && conditionQuantity && conditionLocation) {
+  let conditionCondition = conditionOk();
+  if(conditionFirstName && conditionLastName && conditionEmail && conditionBirthdate && conditionQuantity && conditionLocation && conditionCondition) {
     closeModal();
     firstInput.value = "";
     lastInput.value = "";
