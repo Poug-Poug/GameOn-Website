@@ -19,7 +19,7 @@ const emailInput = document.querySelector("#email");
 const birthdateInput = document.querySelector("#birthdate");
 const quantityInput = document.querySelector("#quantity");
 const locationInput = document.querySelector('.checkbox-label');
-const condtionInput = document.querySelector('.checkbox2-label');
+const conditionInput = document.querySelector('#checkbox1');
 const submitButton = document.querySelector('.btn-submit');
 const allInputs = document.querySelectorAll('form>div>input');
 
