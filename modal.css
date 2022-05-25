@@ -82,7 +82,7 @@ img {
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
-    top: 0;
+    bottom : 312px;
   }
   .topnav.responsive a {
     float: none;
