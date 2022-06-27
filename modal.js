@@ -43,7 +43,7 @@ function closeModal() {
 }
 
 // Regex
-const regexName = /^[a-zA-Z]{2,}$/;
+const regexName = /^([^0-9]{2,})$/
 const regexMail = /^[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+$/;
 const regexNumber = /^[0-9]$/;
 
@@ -106,7 +106,7 @@ function birthdateOk() {
 // function to check if quantity is ok 
 function quantityOk() {
   let quantityOk = false;
-  if(quantityInput.value.trim() != "") {
+  if(quantityInput.value.trim() != "" && quantityInput.value.trim() >= 0) {
     quantityInput.parentNode.removeAttribute("data-error");
     quantityInput.parentNode.removeAttribute("data-error-visible");
     quantityOk = true;
