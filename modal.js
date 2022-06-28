@@ -106,7 +106,7 @@ function birthdateOk() {
 // function to check if quantity is ok 
 function quantityOk() {
   let quantityOk = false;
-  if(quantityInput.value.trim() != "" && quantityInput.value.trim() >= 0) {
+  if(quantityInput.value.trim() != "" || quantityInput.value.trim() >= 0) {
     quantityInput.parentNode.removeAttribute("data-error");
     quantityInput.parentNode.removeAttribute("data-error-visible");
     quantityOk = true;
